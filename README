@@ -20,7 +20,7 @@ my @mixed     = $rng->shuffle_array(@arr);
 
 # METHODS
 
-- **rand64**
+- **rand64()**
 
     Return an unsigned 64-bit random integer.
 
@@ -32,7 +32,7 @@ my @mixed     = $rng->shuffle_array(@arr);
 
     Returns $num random bytes.
 
-- **random\_float**
+- **random\_float()**
 
     Returns a float in the interval \[0, 1\] inclusive.
 

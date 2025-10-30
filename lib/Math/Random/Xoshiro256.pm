@@ -145,7 +145,7 @@ Math::Random::Xoshiro256 - XS wrapper for xoshiro256** PRNG
 
 =over
 
-=item B<rand64>
+=item B<rand64()>
 
 Return an unsigned 64-bit random integer.
 
@@ -157,7 +157,7 @@ Return a random integer (non-biased) in [$min, $max] inclusive.
 
 Returns $num random bytes.
 
-=item B<random_float>
+=item B<random_float()>
 
 Returns a float in the interval [0, 1] inclusive.
 
