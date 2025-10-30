@@ -1,41 +1,15 @@
-!Build/
-.last_cover_stats
-/META.yml
-/META.json
-/MYMETA.*
-*.o
-*.pm.tdy
-*.bs
-
-# Devel::Cover
-cover_db/
-
-# Devel::NYTProf
-nytprof.out
-
-# Dist::Zilla
-/.build/
-
-# Module::Build
+*.gz
+Makefile.old
+Makefile
+.build/
 _build/
-Build
-Build.bat
-
-# Module::Install
+cover_db/
+blib/
 inc/
-
-# ExtUtils::MakeMaker
-/blib/
-/_eumm/
-/*.gz
-/Makefile
-/Makefile.old
-/MANIFEST.bak
-/pm_to_blib
-/*.zip
-
-# Carton/Carmel
-/local/
-/.carmel/
-# cpanfile.snapshot should generally be ignored for library code, otherwise included
-# cpanfile.snapshot 
+lib/Math/Random/*.bs
+lib/Math/Random/*.c
+lib/Math/Random/*.o
+pm_to_blib
+MYMETA.*
+lib/Random/Simple.def
+none/
