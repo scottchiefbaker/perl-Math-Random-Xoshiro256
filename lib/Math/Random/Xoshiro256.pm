@@ -125,7 +125,7 @@ __END__
 
 =head1 NAME
 
-Math::Random::Xoshiro256 - XS wrapper for xoshiro256+ PRNG
+Math::Random::Xoshiro256 - XS wrapper for xoshiro256** PRNG
 
 =head1 SYNOPSIS
 
@@ -145,23 +145,29 @@ Math::Random::Xoshiro256 - XS wrapper for xoshiro256+ PRNG
 
 =over
 
-=item rand64
+=item B<rand64>
+
 Return an unsigned 64-bit random integer.
 
-=item random_int($min, $max)
+=item B<random_int($min, $max)>
+
 Return a random integer (non-biased) in [$min, $max] inclusive.
 
-=item shuffle_array(@array)
-Returns a shuffled list using the Fisher-Yates algorithm with the PRNG instance. Input array is not modified.
+=item B<random_bytes($num)>
 
-=item random_elem(@array)
-Returns a single random element from the given array (returns undef if array is empty).
-
-=item random_bytes($num)
 Returns $num random bytes.
 
-=item random_float
+=item B<random_float>
+
 Returns a float in the interval [0, 1] inclusive.
+
+=item B<random_elem(@array)>
+
+Returns a single random element from the given array (returns undef if array is empty).
+
+=item B<shuffle_array(@array)>
+
+Returns a shuffled list using the Fisher-Yates algorithm with the PRNG instance. Input array is not modified.
 
 =back
 
