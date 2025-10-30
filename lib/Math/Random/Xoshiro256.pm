@@ -3,20 +3,12 @@ use strict;
 use warnings;
 use v5.10;
 use Carp qw(croak);
-use Config;
 
 # https://pause.perl.org/pause/query?ACTION=pause_operating_model#3_5_factors_considering_in_the_indexing_phase
 our $VERSION = '0.01';
 
 require XSLoader;
 XSLoader::load('Math::Random::Xoshiro256', $VERSION);
-
-# Check if the UV (unsigned value) Perl type is 64bit
-my $has_64bit = ($Config{uvsize} == 8);
-
-if (!$has_64bit) {
-	croak("This module requires 64bit ints");
-}
 
 sub new {
 	my ($class, $opts) = @_;
