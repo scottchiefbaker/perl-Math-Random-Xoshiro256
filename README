@@ -1,0 +1,32 @@
+# NAME
+
+Math::Random::Xoshiro256 - XS wrapper for xoshiro256+ PRNG
+
+# SYNOPSIS
+
+    use Math::Random::Xoshiro256;
+    my $rng = Math::Random::Xoshiro256->new();
+
+    my $rand   = $rng->rand64();
+    my $int    = $rng->random_int(10, 20);   # non-biased integer in [10, 20]
+    my $bytes  = $rng->random_bytes(16);     # 16 random bytes from PRNG
+    my $float  = $rng->random_float();       # float in [0, 1] inclusive
+
+    my @arr       = ('red', 'green', 'blue', 'yellow', 'purple');
+    my $rand_item = $rng->random_elem(@arr);
+    my @mixed     = $rng->shuffle_array(@arr);
+
+# METHODS
+
+- rand64
+Return an unsigned 64-bit random integer.
+- random\_int($min, $max)
+Return a random integer (non-biased) in \[$min, $max\] inclusive.
+- shuffle\_array(@array)
+Returns a shuffled list using the Fisher-Yates algorithm with the PRNG instance. Input array is not modified.
+- random\_elem(@array)
+Returns a single random element from the given array (returns undef if array is empty).
+- random\_bytes($num)
+Returns $num random bytes.
+- random\_float
+Returns a float in the interval \[0, 1\] inclusive.
