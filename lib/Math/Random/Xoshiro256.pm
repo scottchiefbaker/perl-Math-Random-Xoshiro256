@@ -88,15 +88,23 @@ sub shuffle_array {
 
 sub random_elem {
     my ($self, @array) = @_;
-    return undef unless @array;
-    my $idx = $self->random_int(0, $#array);
-    return $array[$idx];
+
+	if (!@array) {
+		return undef;
+	}
+
+    my $idx = $self->random_int(0, scalar(@array) - 1);
+	my $ret = $array[$idx];
+
+    return $ret;
 }
 
 sub random_bytes {
     my ($self, $num) = @_;
 
-    croak("random_bytes: positive number required") unless defined $num && $num > 0;
+	if (!defined($num) || $num <= 0) {
+		croak("random_bytes: positive number required");
+	}
 
 	# Get random bytes until we have the desired number
     my $bytes = '';
