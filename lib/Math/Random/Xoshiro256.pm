@@ -117,13 +117,18 @@ sub random_bytes {
 }
 
 sub random_float {
-    my ($self) = @_;
+    my ($self, $non_inclusive) = @_;
 
 	# Get a random 64-bit integer and convert it to a float in [0,1]
     my $u64   = $self->rand64;
 	my $top53 = $u64 >> 11;
 
-    my $ret   = $top53 / (2**53);
+    my $ret;
+	if ($non_inclusive) {
+		$ret = $top53 / ((2**53) - 1);
+	} else {
+		$ret = $top53 / (2**53);
+	}
 
 	return $ret;
 }
@@ -148,6 +153,19 @@ Math::Random::Xoshiro256 - XS wrapper for xoshiro256** PRNG
   my @arr       = ('red', 'green', 'blue', 'yellow', 'purple');
   my $rand_item = $rng->random_elem(@arr);
   my @mixed     = $rng->shuffle_array(@arr);
+
+  $rng->seed($seed)   # Single 64bit seed
+  $rng->seed4(@seeds) # 4x 64bit seeds
+
+=head1 DESCRIPTION
+
+Implement the Xoshiro256** PRNG and expose so user friendly random methods.
+
+This module is automatically seeded with entropy directly from your OS.
+On Linux this is C</dev/urandom> and on Windows it uses C<RtlGenRandom>.
+
+Alternately you can manually seed this if you need repeatable random
+numbers.
 
 =head1 METHODS
 
@@ -176,6 +194,24 @@ Returns a single random element from the given array (returns undef if array is 
 =item B<shuffle_array(@array)>
 
 Returns a shuffled list using the Fisher-Yates algorithm with the PRNG instance. Input array is not modified.
+
+=back
+
+=head1 SEE ALSO
+
+=over
+
+=item *
+L<Random::Simple>
+
+=item *
+L<Math::Random::PCG32>
+
+=item *
+L<Math::Random::ISAAC>
+
+=item *
+L<Math::Random::MT>
 
 =back
 
