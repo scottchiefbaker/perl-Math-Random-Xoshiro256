@@ -5,7 +5,7 @@ use v5.10;
 use Carp qw(croak);
 
 # https://pause.perl.org/pause/query?ACTION=pause_operating_model#3_5_factors_considering_in_the_indexing_phase
-our $VERSION = '0.01';
+our $VERSION = '0.1.2';
 
 require XSLoader;
 XSLoader::load('Math::Random::Xoshiro256', $VERSION);
