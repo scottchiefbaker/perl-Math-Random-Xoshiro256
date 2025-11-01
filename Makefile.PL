@@ -14,4 +14,9 @@ WriteMakefile(
     ABSTRACT     => 'XS wrapper for xoshiro256+ PRNG',
     AUTHOR       => 'Scott Baker <bakerscot@cpan.org>',
     PL_FILES     => {},
+    META_MERGE => {
+        resources => {
+            repository => 'https://github.com/scottchiefbaker/perl-Math-Random-Xoshiro256',
+        },
+    },
 );
